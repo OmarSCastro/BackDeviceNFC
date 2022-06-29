@@ -11,27 +11,29 @@ function App() {
       response => response.json()
     ).then(
       data => {
-        setBackendData(data)
+        // console.log(data.devices);
+        setBackendData(data);
       }
-    )
-  },[])
+    );
+  },[]);
 
+
+  const mostrarDevice = () => {
+    document.getElementById('deviceHTML').innerText = backendData.devices
+    // console.log( JSON.stringify(backendData))
+    console.log( backendData );
+  }
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+         Aqui se mostrará la antena: <span id='deviceHTML' >Device</span>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={mostrarDevice}>
+          Push me
+        </button>
       </header>
     </div>
   );
